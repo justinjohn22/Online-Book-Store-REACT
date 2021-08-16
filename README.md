@@ -5,9 +5,9 @@
 ## Members
 
 - Justin John
-- xxxxx
-- xxxxx
-- xxxxx
+- Rylan Koneri
+- Mohammed Mousa
+- Daniel Marmion
 
 ## Records
 

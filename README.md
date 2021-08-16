@@ -11,9 +11,9 @@
 
 ## Records
 
-- Github repository :https://github.com/xxx
-- jira Board : https://xxxx
-- Google Docs : https://drive.google.com/xxxx
+- Github repository :https://github.com/justinjohn22/SEPT-Bookeroo-Team-2
+- jira Board : https://team-1627433047369.atlassian.net/jira/software/projects/ST/boards/1
+- Google Docs : https://drive.google.com/drive/u/1/folders/1auxxh3MTLsE0269bF1ZMa2EVDPNbgvWT
 
 ## Code documentation - Release 0.1.0 - date
 

@@ -1,0 +1,9 @@
+.grey-container {
+  background-color: rgb(245 241 241);
+  height: 50vh;
+  border: 1px solid #565555;
+  max-width: 950px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+}

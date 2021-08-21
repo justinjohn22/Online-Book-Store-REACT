@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./App.css";
 import Dashboard from "./components/Dashboard";
 import Header from "./components/Layout/Header";
+import   FooterComponent   from "./components/Layout/FooterComponent.jsx";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import AddPerson from "./components/Persons/AddPerson";
@@ -19,6 +21,8 @@ class App extends Component {
         <Router>
           <div className="App">
             <Header />
+            <FooterComponent />
+
             {
               //Public Routes
             }
@@ -32,7 +36,7 @@ class App extends Component {
             }
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/addPerson" component={AddPerson} />
-          
+           
           </div>
         </Router>
       </Provider>

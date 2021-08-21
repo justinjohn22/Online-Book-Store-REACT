@@ -2,8 +2,15 @@
   background-color: rgb(245 241 241);
   height: 50vh;
   border: 1px solid #565555;
-  max-width: 950px;
+  max-width: 1050px;
   margin: auto;
   display: flex;
   align-items: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-text {
+  padding-left: 25%;
+  padding-right: 23%;
+  text-align: center;
 }

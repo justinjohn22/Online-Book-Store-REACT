@@ -4,7 +4,7 @@ import React, { Component } from 'react'
     render() {
         return (
             <div>
-            <nav className="navbar navbar-expand-sm navbar-dark bg-primary mb-4">
+            <nav className="navbar navbar-expand-sm navbar-dark">
             <div className="container">
                 <a className="navbar-brand" href="/">
                 🕮
@@ -17,7 +17,9 @@ import React, { Component } from 'react'
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item">
                              <b> <a className="navbar-brand" href="/dashboard">
-                                BOOKEROO!
+                                <div className="main-title">
+                                    BOOKEROO!
+                                </div>
                             </a></b>  
                         </li>
                     </ul>

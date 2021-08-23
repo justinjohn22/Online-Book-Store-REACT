@@ -16,9 +16,9 @@ import React, { Component } from 'react'
                 <div className="collapse navbar-collapse" id="mobile-nav">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item">
-                             <b> <a className="navbar-brand" href="/dashboard">
-                                <div className="main-title">
-                                    BOOKEROO!
+                             <b><a className="navbar-brand" href="/">
+                                <div className="main-title slab-serif">
+                                    BOOKEROO
                                 </div>
                             </a></b>  
                         </li>

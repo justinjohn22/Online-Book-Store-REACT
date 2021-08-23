@@ -82,3 +82,8 @@ img {
   background-color: black;
   text-align: center;
 }
+
+.slab-serif {
+  /* Use slab serif-font */
+  font-family: 'Arvo', serif;
+}

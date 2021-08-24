@@ -22,9 +22,8 @@ class Landing extends Component {
                   <div class="grey-container">
                       <div className="main-text">
                         <br />
-                        <h1 className="slab-serif"><b>Welcome to BOOKEROO!</b></h1>  
-                        <h4>(the world’s best book selling/sharing service)</h4>
-                        <br />
+                        <h1 className="slab-serif"><b>Welcome to BOOKEROO!</b></h1>    
+                        <hr />
                         <h5><b>Which option suits you?</b></h5>
                         <br />
                         <button onClick={clickMe}>

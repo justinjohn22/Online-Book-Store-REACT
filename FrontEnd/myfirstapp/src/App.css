@@ -3,10 +3,10 @@ img {
 }
 
 .navbar {
-  background-color: #e3f2fd;
+  background-color: #000000;
 }
 .fa.fa-edit {
-  color: #18a2b9;
+  color: #142d31;
 }
 
 .list-group-item.delete:hover {
@@ -62,4 +62,28 @@ img {
 
 .form-control::placeholder {
   color: #bbb !important;
+}
+
+.main-title {
+}
+
+.col-md-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding-top: 30px;
+}
+
+.footer {
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  min-height: 100px;
+  background-color: black;
+  text-align: center;
+}
+
+.slab-serif {
+  /* Use slab serif-font */
+  font-family: 'Arvo', serif;
 }

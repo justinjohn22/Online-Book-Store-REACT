@@ -16,7 +16,8 @@ class Landing extends Component {
   render() {
     return (
       <div className="container">
-          <div className="row">
+        <body>
+        <div className="row">
               <div className="col-md-12">
                   <div class="grey-container">
                       <div className="main-text">
@@ -37,6 +38,8 @@ class Landing extends Component {
                   </div>
               </div>
           </div>
+        </body>
+         
       </div>
     );
   }

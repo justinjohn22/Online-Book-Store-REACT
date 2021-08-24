@@ -5,7 +5,7 @@ export default class FooterComponent extends Component {
     return (
       <div>
         <footer className="footer">
-         <p style={{ color: 'white'}}> All Rights Reserved 2021 - BOOKEROO </p>
+         <p style={{ color: 'white'}}> © SEPT Team 02 - All Rights Reserved 2021 - BOOKEROO </p>
         </footer>
       </div>
     )

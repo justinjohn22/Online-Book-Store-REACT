@@ -28,16 +28,16 @@ public class Book {
 
   @Column(name = "book_cost")
   private float cost;
-  
+
   @Column(name = "book_ISBN")
   private String ISBN;
 
   @Column(name = "cover_image")
   private String coverImage;
-  
+
   private Date create_At;
   private Date update_At;
-  
+
   public Book() {
 
   }
@@ -94,43 +94,43 @@ public class Book {
   public String getCoverImage() {
     return coverImage;
   }
-  
+
   public void setISBM(String ISBN) {
     this.ISBN = ISBN;
-  } 
-  
-  public void getISBN() {
+  }
+
+  public String getISBN() {
     return ISBN;
   }
 
   public void setCoverImage(String coverImage) {
     this.coverImage = coverImage;
   }
-  
+
   public Date getCreate_At() {
-      return create_At;
+    return create_At;
   }
 
   public void setCreate_At(Date create_At) {
-      this.create_At = create_At;
+    this.create_At = create_At;
   }
 
   public Date getUpdate_At() {
-      return update_At;
+    return update_At;
   }
 
   public void setUpdate_At(Date update_At) {
-      this.update_At = update_At;
+    this.update_At = update_At;
   }
 
   @PrePersist
-  protected void onCreate(){
-      this.create_At = new Date();
+  protected void onCreate() {
+    this.create_At = new Date();
   }
 
   @PreUpdate
-  protected void onUpdate(){
-      this.update_At = new Date();
+  protected void onUpdate() {
+    this.update_At = new Date();
   }
 
 }

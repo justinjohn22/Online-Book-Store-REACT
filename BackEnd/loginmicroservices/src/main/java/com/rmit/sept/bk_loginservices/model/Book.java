@@ -28,19 +28,23 @@ public class Book {
 
   @Column(name = "book_cost")
   private float cost;
+  
+  @Column(name = "book_ISBN")
+  private String ISBN;
 
   @Column(name = "cover_image")
   private String coverImage;
-
+ 
   public Book() {
 
   }
 
-  public Book(String bookName, String author, String description, float cost, String coverImage) {
+  public Book(String bookName, String author, String description, float cost, String ISBN, String coverImage) {
     this.bookName = bookName;
     this.author = author;
     this.description = description;
     this.cost = cost;
+    this.ISBN = ISBN;
     this.coverImage = coverImage;
   }
 
@@ -86,6 +90,14 @@ public class Book {
 
   public String getCoverImage() {
     return coverImage;
+  }
+  
+  public void setISBM(String ISBN) {
+    this.ISBN = ISBN;
+  } 
+  
+  public void getISBN() {
+    return ISBN;
   }
 
   public void setCoverImage(String coverImage) {

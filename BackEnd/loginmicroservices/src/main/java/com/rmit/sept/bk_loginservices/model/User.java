@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.Collection;
 
 @Entity
+@Table(name = "users")
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,8 +27,8 @@ public class User implements UserDetails {
     private String password;
     @Transient
     private String confirmPassword;
-    private Date create_At;
-    private Date update_At;
+    private Date createAt;
+    private Date updateAt;
 
     // OneToMany with Project
 
@@ -74,30 +75,30 @@ public class User implements UserDetails {
         this.confirmPassword = confirmPassword;
     }
 
-    public Date getCreate_At() {
-        return create_At;
+    public Date getCreateAt() {
+        return createAt;
     }
 
-    public void setCreate_At(Date create_At) {
-        this.create_At = create_At;
+    public void setCreateAt(Date createAt) {
+        this.createAt = createAt;
     }
 
-    public Date getUpdate_At() {
-        return update_At;
+    public Date getUpdateAt() {
+        return updateAt;
     }
 
-    public void setUpdate_At(Date update_At) {
-        this.update_At = update_At;
+    public void setUpdate_At(Date updateAt) {
+        this.updateAt = updateAt;
     }
 
     @PrePersist
     protected void onCreate() {
-        this.create_At = new Date();
+        this.createAt = new Date();
     }
 
     @PreUpdate
     protected void onUpdate() {
-        this.update_At = new Date();
+        this.updateAt = new Date();
     }
 
     /*

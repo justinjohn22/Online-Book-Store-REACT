@@ -1,14 +1,7 @@
 package com.rmit.sept.bk_loginservices.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 import java.util.Date;
-import java.util.Collection;
 
 @Entity
 @Table(name = "books")
@@ -17,37 +10,37 @@ public class Book {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
 
-  @Column(name = "book_name")
+  @Column(name = "name")
   private String bookName;
 
-  @Column(name = "book_author")
+  @Column(name = "author")
   private String author;
 
-  @Column(name = "book_description")
+  @Column(name = "description")
   private String description;
 
-  @Column(name = "book_cost")
+  @Column(name = "cost")
   private float cost;
 
-  @Column(name = "book_ISBN")
-  private String ISBN;
+  @Column(name = "isbn")
+  private String isbn;
 
   @Column(name = "cover_image")
   private String coverImage;
 
-  private Date create_At;
-  private Date update_At;
+  private Date createAt;
+  private Date updateAt;
 
   public Book() {
 
   }
 
-  public Book(String bookName, String author, String description, float cost, String ISBN, String coverImage) {
+  public Book(String bookName, String author, String description, float cost, String isbn, String coverImage) {
     this.bookName = bookName;
     this.author = author;
     this.description = description;
     this.cost = cost;
-    this.ISBN = ISBN;
+    this.isbn = isbn;
     this.coverImage = coverImage;
   }
 
@@ -95,42 +88,42 @@ public class Book {
     return coverImage;
   }
 
-  public void setISBM(String ISBN) {
-    this.ISBN = ISBN;
+  public void setIsbn(String isbn) {
+    this.isbn = isbn;
   }
 
-  public String getISBN() {
-    return ISBN;
+  public String getIsbn() {
+    return isbn;
   }
 
   public void setCoverImage(String coverImage) {
     this.coverImage = coverImage;
   }
 
-  public Date getCreate_At() {
-    return create_At;
+  public Date getCreateAt() {
+    return createAt;
   }
 
-  public void setCreate_At(Date create_At) {
-    this.create_At = create_At;
+  public void setCreateAt(Date createAt) {
+    this.createAt = createAt;
   }
 
-  public Date getUpdate_At() {
-    return update_At;
+  public Date getUpdateAt() {
+    return updateAt;
   }
 
-  public void setUpdate_At(Date update_At) {
-    this.update_At = update_At;
+  public void setUpdateAt(Date updateAt) {
+    this.updateAt = updateAt;
   }
 
   @PrePersist
   protected void onCreate() {
-    this.create_At = new Date();
+    this.createAt = new Date();
   }
 
   @PreUpdate
   protected void onUpdate() {
-    this.update_At = new Date();
+    this.updateAt = new Date();
   }
 
 }

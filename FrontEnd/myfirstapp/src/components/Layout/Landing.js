@@ -12,7 +12,6 @@ function clickMe1() {
 }
 
 class Landing extends Component {
-
   render() {
     return (
       <div className="container">
@@ -32,8 +31,8 @@ class Landing extends Component {
                   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                   <button onClick={clickMe1}>
                   <b> SELL BOOKS </b>
-                  </button>                       
-                </div>         
+                  </button>
+                </div>
               </div>
             </div>
           </div>

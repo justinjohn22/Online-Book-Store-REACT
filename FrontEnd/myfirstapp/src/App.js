@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Dashboard from "./components/Dashboard";
 import Header from "./components/Layout/Header";
-import   FooterComponent   from "./components/Layout/FooterComponent.jsx";
+import Footer from "./components/Layout/Footer.js";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -21,7 +21,7 @@ class App extends Component {
         <Router>
           <div className="App">
             <Header />
-            <FooterComponent />
+            <Footer />
 
             {
               //Public Routes

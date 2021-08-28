@@ -4,8 +4,12 @@ class Footer extends Component {
   render() {
     return (
       <div>
-        <footer className="footer">
-         <p style={{ color: 'white'}}> © SEPT Team 02 - All Rights Reserved 2021 - BOOKEROO </p>
+        <footer className="footer white-text">
+          <p>
+            <a href="/" className="white-link">Home</a>
+            <a href="/about" className="white-link">About Us</a>
+          </p>
+          <p>© SEPT Team 02 2021 - All Rights Reserved - BOOKEROO</p>
         </footer>
       </div>
     )

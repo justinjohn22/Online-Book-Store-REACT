@@ -20,7 +20,7 @@ class Header extends Component {
                     <div className="main-title slab-serif">
                       BOOKEROO
                     </div>
-                  </a></b>  
+                  </a></b>
                 </li>
               </ul>
 

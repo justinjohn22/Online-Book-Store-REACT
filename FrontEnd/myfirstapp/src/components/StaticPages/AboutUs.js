@@ -22,12 +22,9 @@ class AboutUs extends Component {
                 With books avaiable either new or used, and at all price ranges, there really is
                 something for everyone on Bookeroo.
               </p>
-
             </div>
           </div>
         </div>
-          
-
       </div>
     )
   }

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Dashboard from "./components/Dashboard";
 import Header from "./components/Layout/Header";
-import   FooterComponent   from "./components/Layout/FooterComponent.jsx";
+import Footer from "./components/Layout/Footer.js";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -13,6 +13,7 @@ import store from "./store";
 import Landing from "./components/Layout/Landing";
 import Register from "./components/UserManagement/Register";
 import Login from "./components/UserManagement/Login";
+import AboutUs from "./components/StaticPages/AboutUs";
 
 class App extends Component {
   render() {
@@ -21,7 +22,7 @@ class App extends Component {
         <Router>
           <div className="App">
             <Header />
-            <FooterComponent />
+            <Footer />
 
             {
               //Public Routes
@@ -30,6 +31,7 @@ class App extends Component {
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/about" component={AboutUs} />
 
             {
               //Private Routes

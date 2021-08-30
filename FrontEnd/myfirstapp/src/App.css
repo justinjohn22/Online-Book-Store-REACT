@@ -73,6 +73,16 @@ img {
   padding-top: 30px;
 }
 
+.outline-box {
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 5px solid #000000;
+
+  padding-top: 40px;
+  padding-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 .footer {
   padding: 10px;
   position: absolute;
@@ -83,7 +93,36 @@ img {
   text-align: center;
 }
 
+.footer a {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
 .slab-serif {
   /* Use slab serif-font */
   font-family: 'Arvo', serif;
+}
+
+.white-text {
+  color: white;
+}
+
+.white-link {
+  color: white;
+  text-decoration: underline;
+}
+
+.white-link:hover {
+  color: lightgrey;
+  text-decoration: underline;
+}
+
+.centered-text {
+  align-items: center;
+  text-align: center;
+}
+
+.centered-text p {
+  margin-left: auto;
+  margin-right: auto;
 }

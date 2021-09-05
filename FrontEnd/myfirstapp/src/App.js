@@ -13,6 +13,7 @@ import store from "./store";
 import Landing from "./components/Layout/Landing";
 import Register from "./components/UserManagement/Register";
 import Login from "./components/UserManagement/Login";
+import LoginPage from "./components/StaticPages/LoginPage";
 import AboutUs from "./components/StaticPages/AboutUs";
 
 class App extends Component {
@@ -30,7 +31,7 @@ class App extends Component {
            
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
-            <Route exact path="/login" component={Login} />
+            <Route exact path="/login.html" component={LoginPage} />
             <Route exact path="/about" component={AboutUs} />
 
             {

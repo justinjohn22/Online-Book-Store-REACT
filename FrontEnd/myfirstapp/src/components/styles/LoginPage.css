@@ -1,0 +1,46 @@
+
+.col-md-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-top: 30px;
+}
+
+.outline-box {
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 5px solid #000000;
+  
+    width: 400px;
+  
+    padding-top: 40px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    
+    position:absolute;
+    top:550%;
+    left:33%;
+  
+}
+
+.slab-serif {
+    /* Use slab serif-font */
+    font-family: 'Arvo', serif;
+}
+
+.centered-text {
+    align-items: center;
+    text-align: center;
+}
+
+.login-text {
+    text-align: left;
+  }
+  
+.login-text p{
+    display: inline;
+    padding-left: 28%;
+}
+
+.createacc-btn{
+    text-align: right;
+}

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import '../styles/Landing.css'
 
 function clickMe() {
-  alert('Book collection page has not been added yet!')
+  window.location.href='/books'
 }
 
 function clickMe1() {

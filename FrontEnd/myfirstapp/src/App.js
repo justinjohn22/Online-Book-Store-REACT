@@ -15,6 +15,7 @@ import Register from "./components/UserManagement/Register";
 import Login from "./components/UserManagement/Login";
 import LoginPage from "./components/StaticPages/LoginPage";
 import AboutUs from "./components/StaticPages/AboutUs";
+import AllBooks from "./components/Books/AllBooks";
 
 import RegisterPage from "./components/StaticPages/RegisterPage";
 
@@ -35,6 +36,7 @@ class App extends Component {
             <Route exact path="/register.html" component={RegisterPage} />
             <Route exact path="/login.html" component={LoginPage} />
             <Route exact path="/about" component={AboutUs} />
+            <Route exact path="/books" component={AllBooks} />
 
             {
               //Private Routes

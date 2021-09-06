@@ -6,7 +6,7 @@ class Header extends Component {
       <div>
         <nav className="navbar navbar-expand-sm navbar-dark">
           <div className="container">
-            <a className="navbar-brand" href="/">
+            <a className="navbar-brand" href="/books">
             🕮
             </a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">

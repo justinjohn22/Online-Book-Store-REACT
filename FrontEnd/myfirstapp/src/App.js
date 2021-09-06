@@ -16,6 +16,8 @@ import Login from "./components/UserManagement/Login";
 import LoginPage from "./components/StaticPages/LoginPage";
 import AboutUs from "./components/StaticPages/AboutUs";
 
+import RegisterPage from "./components/StaticPages/RegisterPage";
+
 class App extends Component {
   render() {
     return (
@@ -30,7 +32,7 @@ class App extends Component {
             }
            
             <Route exact path="/" component={Landing} />
-            <Route exact path="/register" component={Register} />
+            <Route exact path="/register.html" component={RegisterPage} />
             <Route exact path="/login.html" component={LoginPage} />
             <Route exact path="/about" component={AboutUs} />
 

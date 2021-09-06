@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 import classnames from "classnames";
 
 class Register extends Component {
-    constructor(){
-        super();
+  constructor() {
+    super();
 
     this.state = {
       username: "",
@@ -15,16 +15,16 @@ class Register extends Component {
       confirmPassword: "",
       errors: {}
     };
+
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  componentWillReceiveProps(nextProps){
-      if (nextProps.errors){
+  componentWillReceiveProps(nextProps) {
+      if (nextProps.errors) {
           this.setState ({
               errors: nextProps.errors
           });
-
       }
   }
 
@@ -42,15 +42,16 @@ class Register extends Component {
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
-    }
+  }
+
   render() {
-      const { errors } = this.state;
+    const { errors } = this.state;
     return (
       <div className="register">
         <div className="container">
           <div className="row">
             <div className="col-md-12 m-auto">
-              <div className="outline-box centered-text">
+              <div className="narrow-outline-box centered-text">
               <h1 className="slab-serif"><b>Sign Up</b></h1>
               <p className="slab-serif">Create your Account</p>
               <form action="create-profile.html">

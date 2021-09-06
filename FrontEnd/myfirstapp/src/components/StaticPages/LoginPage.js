@@ -9,7 +9,7 @@ class LoginPage extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12 m-auto">
-              <div className="outline-box centered-text">
+              <div className="narrow-outline-box centered-text">
                 <h1 className="slab-serif"><b>Log In</b></h1>
                 <form action="dashboard.html">
                   <div className="login-text">

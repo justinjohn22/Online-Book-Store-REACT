@@ -16,7 +16,7 @@ class PendingBusinessApps extends Component {
                 // Pending applications are listed here; examples included below
                 // In future, these will be read from the backend
               }
-              <p className="slab-serif pendingpa-pendingcount">Pending (2)</p>
+              <p className="slab-serif pendingba-pendingcount">Pending (2)</p>
               <div className="row pendingba-box slab-serif">
                 <div className="col-md-8">
                   <p>

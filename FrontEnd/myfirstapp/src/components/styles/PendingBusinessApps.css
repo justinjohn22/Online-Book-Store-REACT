@@ -1,0 +1,21 @@
+.pendingba-box {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+
+.pendingba-button {
+  float: right;
+  margin-left: 20px;
+
+  font-weight: bold;
+}
+
+.pendingba-pendingcount {
+  margin-left: 5px;
+}

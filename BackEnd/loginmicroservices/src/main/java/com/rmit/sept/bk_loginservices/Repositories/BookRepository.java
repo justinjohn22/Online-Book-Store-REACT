@@ -1,4 +1,4 @@
-package com.rmit.sept.bk_loginservices.Repositories;
+package com.rmit.sept.bk_loginservices.repositories;
 
 import com.rmit.sept.bk_loginservices.model.Book;
 import org.springframework.stereotype.Repository;

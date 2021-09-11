@@ -18,19 +18,41 @@ public class User implements UserDetails {
     private Long id;
 
     @Email(message = "Username needs to be an email")
-    @NotBlank(message = "username is required")
+    @NotBlank(message = "Username is required")
     @Column(unique = true)
     private String username;
-    @NotBlank(message = "Please enter your full name")
+
+    /* 
+     * Account type should be one of:
+     * - customer
+     * - publisher
+     * - pendingpublisher
+     * - admin
+     * - pendingadmin
+    */
+    @NotBlank(message = "Account type is required")
+    private String accountType;
+
+    @NotBlank(message = "Full name is required")
     private String fullName;
-    @NotBlank(message = "Password field is required")
+
+    @NotBlank(message = "Address is required")
+    private String address;
+
+    @NotBlank(message = "Phone number is required")
+    private String phoneNumber;
+
+    @NotBlank(message = "Password is required")
     private String password;
+
     @Transient
     private String confirmPassword;
+    
+    // ABN is optional
+    private String abn;
+
     private Date createAt;
     private Date updateAt;
-
-    // OneToMany with Project
 
     public User() {
     }
@@ -51,12 +73,36 @@ public class User implements UserDetails {
         this.username = username;
     }
 
+    public String getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
+    }
+
     public String getFullName() {
         return fullName;
     }
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getPassword() {
@@ -73,6 +119,14 @@ public class User implements UserDetails {
 
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
+    }
+
+    public String getAbn() {
+        return abn;
+    }
+
+    public void setAbn(String abn) {
+        this.abn = abn;
     }
 
     public Date getCreateAt() {

@@ -97,7 +97,7 @@ public class User implements UserDetails {
         this.address = address;
     }
 
-    public String getPhonenUmber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 

@@ -22,6 +22,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.validation.Valid;
 
 import static com.rmit.sept.bk_loginservices.security.SecurityConstant.TOKEN_PREFIX;
@@ -43,11 +46,26 @@ public class UserController {
     @Autowired
     private UserValidator userValidator;
 
-    
+
     // Get all users in the database
     @GetMapping("/all")
     public Iterable<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    // Get all users with accountType 'pendingpublisher'
+    @GetMapping("/pendingpublishers")
+    public List<User> getPendingPublisherUsers() {
+        List<User> pendingPublishers = new ArrayList<User>();
+
+        // Add all users with accountType "pendingpublisher" to the list
+        for (User user : userRepository.findAll()) {
+            if (user.getAccountType().toLowerCase().equals("pendingpublisher")) {
+                pendingPublishers.add(user);
+            }
+        }
+
+        return pendingPublishers;
     }
 
 
@@ -61,7 +79,7 @@ public class UserController {
 
         User newUser = userService.saveUser(user);
 
-        return  new ResponseEntity<User>(newUser, HttpStatus.CREATED);
+        return new ResponseEntity<User>(newUser, HttpStatus.CREATED);
     }
 
 

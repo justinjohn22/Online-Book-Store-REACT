@@ -87,7 +87,7 @@ public class User implements UserDetails {
         return updateAt;
     }
 
-    public void setUpdate_At(Date updateAt) {
+    public void setUpdateAt(Date updateAt) {
         this.updateAt = updateAt;
     }
 

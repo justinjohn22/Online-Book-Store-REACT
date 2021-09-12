@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -56,16 +55,7 @@ public class UserController {
     // Get all users with accountType 'pendingpublisher'
     @GetMapping("/pendingpublishers")
     public List<User> getPendingPublisherUsers() {
-        List<User> pendingPublishers = new ArrayList<User>();
-
-        // Add all users with accountType "pendingpublisher" to the list
-        for (User user : userRepository.findAll()) {
-            if (user.getAccountType().toLowerCase().equals("pendingpublisher")) {
-                pendingPublishers.add(user);
-            }
-        }
-
-        return pendingPublishers;
+        return userService.getUsersOfType("pendingpublisher");
     }
 
 

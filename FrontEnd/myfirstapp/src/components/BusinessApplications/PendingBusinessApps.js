@@ -1,8 +1,24 @@
+import axios from "axios"
 import React, { Component } from 'react'
+
+import { formatTimestamp } from "../../utils";
 
 import '../styles/PendingBusinessApps.css'
 
 class PendingBusinessApps extends Component {
+  state = {
+    publishers: []
+  }
+
+  componentDidMount() {
+    // Get the list of users with 'pendingPublisher' account type from the backend
+    axios.get("http://localhost:8080/api/v1/users/pendingpublishers")
+      .then(res => {
+        const publishers = res.data;
+        this.setState({ publishers });
+      });
+  }
+
   render() {
     return (
       <div className="container">
@@ -12,37 +28,29 @@ class PendingBusinessApps extends Component {
               <h1 className="slab-serif centered-text">
                 <b>Pending Business Applications</b>
               </h1>
-              { 
-                // Pending applications are listed here; examples included below
-                // In future, these will be read from the backend
+              { /* Number of pending publishers */ }
+              <p className="slab-serif pendingba-pendingcount">
+                Pending ({this.state.publishers.length})
+              </p>
+              {
+                // List of pending applications
+                this.state.publishers.map(publisher => {
+                  return (
+                    <div className="row pendingba-box slab-serif">
+                      <div className="col-md-8">
+                        <p>
+                          Name: {publisher.fullName}<br/>
+                          ABN: {publisher.abn}<br/>
+                          Time: {formatTimestamp(publisher.createAt)}
+                        </p>
+                      </div>
+                      <div className="col-md-4">
+                        <button className="btn btn-danger pendingba-button">✕</button>
+                        <button className="btn btn-success pendingba-button">✓</button>
+                      </div>
+                    </div>
+                  )})
               }
-              <p className="slab-serif pendingba-pendingcount">Pending (2)</p>
-              <div className="row pendingba-box slab-serif">
-                <div className="col-md-8">
-                  <p>
-                    Name: Resonating Reads<br/>
-                    ABN: 95 827 121 617<br/>
-                    12/08/2021 10:55 PM
-                  </p>
-                </div>
-                <div className="col-md-4">
-                  <button className="btn btn-danger pendingba-button">✕</button>
-                  <button className="btn btn-success pendingba-button">✓</button>
-                </div>
-              </div>
-              <div className="row pendingba-box slab-serif">
-                <div className="col-md-8">
-                  <p>
-                    Name: Reading Rodney's Online Store<br/>
-                    ABN: 94 827 231 617<br/>
-                    11/08/2021 3:45 PM
-                  </p>
-                </div>
-                <div className="col-md-4">
-                  <button className="btn btn-danger pendingba-button">✕</button>
-                  <button className="btn btn-success pendingba-button">✓</button>
-                </div>
-              </div>
             </div>
           </div>
         </div>

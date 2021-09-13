@@ -16,13 +16,13 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -31,6 +31,7 @@ import static com.rmit.sept.bk_loginservices.security.SecurityConstant.TOKEN_PRE
 
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/v1/users")
 public class UserController {
 
@@ -56,16 +57,7 @@ public class UserController {
     // Get all users with accountType 'pendingpublisher'
     @GetMapping("/pendingpublishers")
     public List<User> getPendingPublisherUsers() {
-        List<User> pendingPublishers = new ArrayList<User>();
-
-        // Add all users with accountType "pendingpublisher" to the list
-        for (User user : userRepository.findAll()) {
-            if (user.getAccountType().toLowerCase().equals("pendingpublisher")) {
-                pendingPublishers.add(user);
-            }
-        }
-
-        return pendingPublishers;
+        return userService.getUsersOfType("pendingpublisher");
     }
 
 

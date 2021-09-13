@@ -1,7 +1,7 @@
 package com.rmit.sept.bk_loginservices.services;
 
-
-
+import java.util.ArrayList;
+import java.util.List;
 
 import com.rmit.sept.bk_loginservices.exceptions.UsernameAlreadyExistsException;
 import com.rmit.sept.bk_loginservices.model.User;
@@ -43,5 +43,18 @@ public class UserService {
 
     }
 
+    // Get a List of all users belonging with a certain account type
+    public List<User> getUsersOfType(String accountType) {
+        List<User> users = new ArrayList<User>();
+        
+        // Add all users with the desired account type to the list
+        for (User user : userRepository.findAll()) {
+            if (user.getAccountType().toLowerCase().equals(accountType)) {
+                users.add(user);
+            }
+        }
+
+        return users;
+    }
 
 }

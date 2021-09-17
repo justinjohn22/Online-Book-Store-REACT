@@ -21,10 +21,15 @@ class PendingBusinessApps extends Component {
 
   approveApplicant(publisher) {
     updateApplicantState(publisher, "publisher")
+
+    alert("Applicant approved. Refresh the page to see the updated list of applicants.")
   }
 
   rejectApplicant(publisher) {
     updateApplicantState(publisher, "customer")
+
+    alert("Applicant rejected. Refresh the page to see the updated list of applicants.")
+
   }
 
   render() {
@@ -84,7 +89,6 @@ function updateApplicantState(publisher, newState) {
 
   // Send request to backend
   axios.put("http://localhost:8080/api/v1/users/" + publisher.id, updatedPublisher)
-
 }
 
 export default PendingBusinessApps;

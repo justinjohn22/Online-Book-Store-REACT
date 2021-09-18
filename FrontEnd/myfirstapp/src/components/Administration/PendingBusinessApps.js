@@ -29,7 +29,6 @@ class PendingBusinessApps extends Component {
     updateApplicantState(publisher, "customer")
 
     alert("Applicant rejected. Refresh the page to see the updated list of applicants.")
-
   }
 
   render() {

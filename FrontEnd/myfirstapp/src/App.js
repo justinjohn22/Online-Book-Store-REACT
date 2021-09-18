@@ -10,14 +10,14 @@ import AddPerson from "./components/Persons/AddPerson";
 import { Provider } from "react-redux";
 import store from "./store";
 
+import PendingBusinessApps from "./components/Administration/PendingBusinessApps";
 import Landing from "./components/Layout/Landing";
-import Register from "./components/UserManagement/Register";
-import Login from "./components/UserManagement/Login";
-import LoginPage from "./components/StaticPages/LoginPage";
-import PendingBusinessApps from "./components/BusinessApplications/PendingBusinessApps";
 import AboutUs from "./components/StaticPages/AboutUs";
 import AllBooks from "./components/Books/AllBooks";
 
+// import Register from "./components/UserManagement/Register";
+// import Login from "./components/UserManagement/Login";
+import LoginPage from "./components/StaticPages/LoginPage";
 import RegisterPage from "./components/StaticPages/RegisterPage";
 
 class App extends Component {

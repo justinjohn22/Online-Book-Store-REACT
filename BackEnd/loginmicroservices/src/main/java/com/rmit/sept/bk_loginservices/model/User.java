@@ -22,14 +22,10 @@ public class User implements UserDetails {
     @Column(unique = true)
     private String username;
 
-    /* 
-     * Account type should be one of:
-     * - customer
-     * - publisher
-     * - pendingpublisher
-     * - admin
-     * - pendingadmin
-    */
+    /*
+     * Account type should be one of: - customer - publisher - pendingpublisher -
+     * admin - pendingadmin
+     */
     @NotBlank(message = "Account type is required")
     private String accountType;
 
@@ -47,7 +43,7 @@ public class User implements UserDetails {
 
     @Transient
     private String confirmPassword;
-    
+
     // ABN is optional
     private String abn;
 

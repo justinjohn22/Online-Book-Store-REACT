@@ -10,6 +10,7 @@ import AddPerson from "./components/Persons/AddPerson";
 import { Provider } from "react-redux";
 import store from "./store";
 
+import AdminLanding from "./components/Administration/AdminLanding";
 import PendingBusinessApps from "./components/Administration/PendingBusinessApps";
 import Landing from "./components/Layout/Landing";
 import AboutUs from "./components/StaticPages/AboutUs";
@@ -43,7 +44,8 @@ class App extends Component {
             }
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/addPerson" component={AddPerson} />
-            <Route exact path="/pendingapplications" component={PendingBusinessApps} />
+            <Route exact path="/adminlanding" component={AdminLanding} />
+            <Route exact path="/pendingpublishers" component={PendingBusinessApps} />
            
           </div>
         </Router>

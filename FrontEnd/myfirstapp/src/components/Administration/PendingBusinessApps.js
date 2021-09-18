@@ -38,7 +38,7 @@ class PendingBusinessApps extends Component {
           <div className="col-md-12">
             <div className="outline-box">
               <h1 className="slab-serif centered-text">
-                <b>Pending Business Applications</b>
+                <b>Pending Publisher Applications</b>
               </h1>
               { /* Number of pending publishers */ }
               <p className="slab-serif pendingba-pendingcount">

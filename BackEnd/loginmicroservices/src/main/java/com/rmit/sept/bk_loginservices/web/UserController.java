@@ -29,7 +29,6 @@ import javax.validation.Valid;
 
 import static com.rmit.sept.bk_loginservices.security.SecurityConstant.TOKEN_PREFIX;
 
-
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/v1/users")
@@ -47,7 +46,6 @@ public class UserController {
     @Autowired
     private UserValidator userValidator;
 
-
     // Get all users in the database
     @GetMapping("/all")
     public Iterable<User> getAllUsers() {
@@ -60,20 +58,19 @@ public class UserController {
         return userService.getUsersOfType("pendingpublisher");
     }
 
-
     @PostMapping("/register")
-    public ResponseEntity<?> registerUser(@Valid @RequestBody User user, BindingResult result){
+    public ResponseEntity<?> registerUser(@Valid @RequestBody User user, BindingResult result) {
         // Validate passwords match
-        userValidator.validate(user,result);
+        userValidator.validate(user, result);
 
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
-        if(errorMap != null)return errorMap;
+        if (errorMap != null)
+            return errorMap;
 
         User newUser = userService.saveUser(user);
 
         return new ResponseEntity<User>(newUser, HttpStatus.CREATED);
     }
-
 
     @Autowired
     private JwtTokenProvider tokenProvider;
@@ -81,22 +78,17 @@ public class UserController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-
-
     @PostMapping("/login")
-    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest, BindingResult result){
+    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest, BindingResult result) {
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
-        if(errorMap != null) return errorMap;
+        if (errorMap != null)
+            return errorMap;
 
         Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        loginRequest.getUsername(),
-                        loginRequest.getPassword()
-                )
-        );
+                new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        String jwt = TOKEN_PREFIX +  tokenProvider.generateToken(authentication);
+        String jwt = TOKEN_PREFIX + tokenProvider.generateToken(authentication);
 
         return ResponseEntity.ok(new JWTLoginSucessReponse(true, jwt));
     }

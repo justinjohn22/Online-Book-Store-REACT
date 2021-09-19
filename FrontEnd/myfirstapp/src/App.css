@@ -91,6 +91,7 @@ img {
   min-height: 100px;
   background-color: black;
   text-align: center;
+  z-index: 1;
 }
 
 .footer a {

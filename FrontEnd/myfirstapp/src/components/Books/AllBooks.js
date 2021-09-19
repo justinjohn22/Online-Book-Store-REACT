@@ -3,6 +3,14 @@ import axios from "axios"
 
 import '../styles/AllBooks.css'
 
+function viewBook() {
+  window.location.href='/books'
+}
+
+function addToCart() {
+  window.location.href='/books'
+}
+
 class AllBooks extends Component {
   state = {
     books: []
@@ -16,7 +24,7 @@ class AllBooks extends Component {
       this.setState({ books })
     })
   }
-
+  
   render() {
     return (
       <div className="container-books">
@@ -28,19 +36,27 @@ class AllBooks extends Component {
           <div className="books-container">
             {
               this.state.books.map(book => {
-                return (        
-                  <p> 
+                return (   
                     <div className="image-group">
-                    <img className="cover-image"
-                    src={book.coverImage}
-                    alt="new"
-                    />
-                    <br></br>
-                    <b>
-                      {book.bookName}
-                    </b>
+                      
+                      <div className="book-attributes">
+                        <img className="cover-image" src={book.coverImage} alt="new"/>
+                        <div className="name-cost">
+                            <b><p className="book-name">{book.bookName}</p></b>
+                            <b><p>${book.cost} </p></b>
+                        </div>
+                      </div>
+
+                      <div className="image-btn-group"> 
+                        <button className="view-book-btn" onClick={viewBook}>
+                          <b> View Book </b>
+                        </button>
+                        <button className="cart-btn" onClick={addToCart}>
+                          <b> Add to Cart </b>
+                        </button>
+                      </div>
+    
                     </div>
-                  </p> 
                 )
               })
             }

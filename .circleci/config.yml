@@ -16,7 +16,7 @@ jobs: # a collection of steps
           # key: circleci-appointmentservicebackend-{{ checksum "pom.xml" }}
 
       - run: ./mvnw package
-  .
+  
       - save_cache: # saves the project dependencies
           paths:
             - ~/.m2

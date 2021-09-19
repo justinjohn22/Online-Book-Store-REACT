@@ -38,24 +38,22 @@ class AllBooks extends Component {
               this.state.books.map(book => {
                 return (   
                     <div className="image-group">
-                      
                       <div className="book-attributes">
                         <img className="cover-image" src={book.coverImage} alt="new"/>
                         <div className="name-cost">
-                            <b><p className="book-name">{book.bookName}</p></b>
-                            <b><p>${book.cost} </p></b>
-                        </div>
+                            <b><p className="book-name slab-serif">{book.bookName} <br /> <strong className="author">{book.author}</strong></p></b>
+                            <div className="space"> </div>
+                            <b><p className="slab-serif price">${book.cost} </p></b>
+                        </div>  
                       </div>
-
                       <div className="image-btn-group"> 
-                        <button className="view-book-btn" onClick={viewBook}>
+                        <button className="view-book-btn slab-serif-white" onClick={viewBook}>
                           <b> View Book </b>
                         </button>
-                        <button className="cart-btn" onClick={addToCart}>
+                        <button className="cart-btn slab-serif-white" onClick={addToCart}>
                           <b> Add to Cart </b>
                         </button>
-                      </div>
-    
+                      </div>     
                     </div>
                 )
               })

@@ -23,7 +23,7 @@ class AllBooks extends Component {
         <div>
           <div className="all-products ">
             <h4 className="slab-serif-white"><b>All Products</b></h4>
-            <h5 className="slab-serif-white">filter | 0 items</h5>
+            <h5 className="slab-serif-white">filter | {this.state.books.length} items</h5>
           </div>
           <div className="books-container">
             {

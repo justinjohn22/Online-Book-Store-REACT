@@ -1,52 +1,28 @@
-version: 2.1
-executors:
-  docker-publisher:
-    environment:
-      IMAGE_NAME: 14876231/loginmicroservices-0.0.1
-    docker:
-      - image: circleci/buildpack-deps:stretch
-jobs:
-  build:
-    executor: docker-publisher
-    steps:
-      - checkout
-      - setup_remote_docker
-      - run:
-          name: Build Docker image
-          command: |
-            docker build -t 14876231/loginmicroservices-0.0.1:latest .
-      - run:
-          name: Archive Docker image
-          command: docker save -o image.tar 14876231/loginmicroservices-0.0.1
-      - persist_to_workspace:
-          root: .
+version: 2.1 # use CircleCI 2.0
+jobs: # a collection of steps
+  build: # runs not using Workflows must have a `build` job as entry point
+    working_directory: ~/SEPT-Bookeroo-Team-2/BackEnd/loginmicroservices
+
+    docker: # run the steps with Docker
+      - image: circleci/openjdk:8-jdk-stretch # ...with this image as the primary container; this is where all `steps` will run
+
+    steps: # a collection of executable commands
+      - checkout:
+          path: ~/SEPT-Bookeroo-Team-2
+
+      - restore_cache: # restore the saved cache after the first run or if `pom.xml` has changed
+          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
+          # key: circleci-appointmentservicebackend-{{ checksum "pom.xml" }}
+          # key: circleci-appointmentservicebackend-{{ checksum "pom.xml" }}
+
+      - run: ./mvnw package
+  .
+      - save_cache: # saves the project dependencies
           paths:
-            - ./image.tar
-  publish-latest:
-    executor: docker-publisher
-    steps:
-      - attach_workspace:
-          at: /tmp/workspace
-      - setup_remote_docker
-      - run:
-          name: Load archived Docker image
-          command: docker load -i /tmp/workspace/image.tar
-      - run:
-          name: Publish Docker Image to Docker Hub
-          command: |
-            echo $DOCKERHUB_PASS | docker login -u "14876231" --password-stdin
-            docker push 14876231/loginmicroservices-0.0.1 :latest
-workflows:
-  version: 2
-  build-master:
-    jobs:
-      - build:
-          filters:
-            branches:
-              only: develop
-      - publish-latest:
-          requires:
-            - build
-          filters:
-            branches:
-              only: develop
+            - ~/.m2
+         # key: circleci-appointmentservicebackend-{{ checksum "pom.xml" }}
+
+      # - run: mvn package # run the actual tests
+
+
+      # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples

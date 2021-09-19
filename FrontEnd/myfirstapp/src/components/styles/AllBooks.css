@@ -25,11 +25,39 @@
 
 .books-container {
   background-color: rgba(255, 255, 255, 0.7);
-  height: 100vh;
   border: 4px solid #000000;
   max-width: 1000px;
   margin: auto;
   display: flex;
   align-items: center;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cover-image {
+  width: 150px;
+  height: 210px;
+  object-fit: cover;
+}
+
+.books-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-auto-flow: row;
+  row-gap: 20px;
+  column-gap: 20px;
+  padding-right: 10px;
+  padding-left: 10px;
+  justify-content: center;
+  position: relative;
+  align-items: flex-start;
+  padding-top: 20px;
+  z-index: -1;
+  padding-bottom: 100px;
+  text-align: center;
+}
+
+.image-group {
+  background-color: white;
+  width: 180px;
+  height: 285px;
 }

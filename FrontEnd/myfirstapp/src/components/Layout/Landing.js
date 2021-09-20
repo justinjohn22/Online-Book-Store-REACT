@@ -27,7 +27,8 @@ class Landing extends Component {
                 <button onClick={clickMe}>
                   <b> VIEW BOOKS </b>
                 </button>
-                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                 <button onClick={clickMe1}>
                 <b> SELL BOOKS </b>
                 </button>

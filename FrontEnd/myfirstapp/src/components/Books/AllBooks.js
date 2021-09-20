@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from "axios"
+import { useState } from 'react'
 
 import '../styles/AllBooks.css'
 
@@ -11,10 +12,13 @@ function addToCart() {
   window.location.href='/books'
 }
 
+
+
 class AllBooks extends Component {
   state = {
     books: []
   }
+  
 
   componentDidMount() {
     // Get the list of books
@@ -29,13 +33,22 @@ class AllBooks extends Component {
     return (
       <div className="container-books">
         <div>
+          <div>
+            {/* <input type="text" name="searchBar" id="searchBar" placeholder="search" />
+            <button onclick="search()">Try it</button> */}
+          </div>
           <div className="all-products ">
             <h4 className="slab-serif-white"><b>All Products</b></h4>
             <h5 className="slab-serif-white">filter | {this.state.books.length} items</h5>
           </div>
           <div className="books-container">
-            {
-              this.state.books.map(book => {
+            { 
+              this.state.books.filter((val)=> {
+                if (val.bookName.toLowerCase().includes("".toLowerCase())) {
+                  return val
+                }
+              }
+              ).map(book => {
                 return (   
                     <div className="image-group">
                       <div className="book-attributes">
@@ -50,6 +63,7 @@ class AllBooks extends Component {
                         <button className="view-book-btn slab-serif-white" onClick={viewBook}>
                           <b> View Book </b>
                         </button>
+                        &nbsp;  
                         <button className="cart-btn slab-serif-white" onClick={addToCart}>
                           <b> Add to Cart </b>
                         </button>

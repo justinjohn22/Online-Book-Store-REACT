@@ -47,11 +47,12 @@ VALUES ('Kelly McWilliams',  'Agnes at the End of the World', 25,
         '876431322330121', '2021-09-19', '2021-09-19');
 
 INSERT INTO books ( author, name, cost, cover_image, description, isbn, create_at, update_at)
-VALUES ('Charles Dickens',  'A Tale of Two Cities', 25, 
-        'https://drive.google.com/uc?id=1pbaT5c_-UnuPdpkBIPwaYg8W5-EokLDc', 
-        'The novel tells the story of the French Doctor Manette, 
-        his 18-year-long imprisonment in the Bastille in Paris 
-        and his release to live in London with his daughter Lucie,
-        whom he had never met. The story is set against the conditions 
-        that led up to the French Revolution and the Reign of Terror.', 
-        '123123ASD', '2021-09-19', '2021-09-19');
+VALUES ('Rachael Lippincott',  'Five Feet Apart', 33.3, 
+        'https://drive.google.com/uc?id=1CmrTUJyDaGEK8ypWrFa6hGyEGtzbFnIF', 
+        'Can you love someone you can never touch?
+        Stella Grant likes to be in control—even though her totally out of control 
+        lungs have sent her in and out of the hospital most of her life. At this point,
+        what Stella needs to control most is keeping herself away from anyone or 
+        anything that might pass along an infection and jeopardize the possibility 
+        of a lung transplant. Six feet apart. No exceptions.', 
+        '2378467129317181', '2021-09-21', '2021-09-21');

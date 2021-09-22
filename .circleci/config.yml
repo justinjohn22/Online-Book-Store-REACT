@@ -10,7 +10,8 @@ jobs: # a collection of steps
 
     steps: 
       - checkout
-      - run: ./mvnw package
+      - run: ~/Backend/loginmicroservices/mvnw package
+      # - run: ./mvnw package
       # - setup_remote_docker
       # - run:
       #     name: Build backend

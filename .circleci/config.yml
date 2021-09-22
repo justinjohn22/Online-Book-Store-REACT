@@ -1,17 +1,17 @@
 version: 2.1
 jobs: # a collection of steps
   build:
-    # working_directory: ~/BackEnd/loginmicroservices
+    working_directory: ~/BackEnd/loginmicroservices
 
-    docker: # run the steps with Docker
-      - image: circleci/openjdk:8-jdk-stretch # ...with this image as the primary container; this is where all `steps` will run
+    # docker: # run the steps with Docker
+    #   - image: circleci/openjdk:8-jdk-stretch # ...with this image as the primary container; this is where all `steps` will run
 
     steps: 
       - checkout
-      - setup_remote_docker
+      # - setup_remote_docker
       - run:
-          name: Build Docker images
-          command: docker-compose up
+          name: Build backend
+          command: mvn package
           # command: docker build -t bookeroo:latest .
       # - restore_cache: # restore the saved cache after the first run or if `pom.xml` has changed
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/

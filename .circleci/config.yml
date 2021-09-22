@@ -5,13 +5,16 @@ jobs: # a collection of steps
 
     # docker: # run the steps with Docker
     #   - image: circleci/openjdk:8-jdk-stretch # ...with this image as the primary container; this is where all `steps` will run
+    docker:
+      - image: circleci/openjdk:stretch
 
     steps: 
       - checkout
+      - run: ./mvnw package
       # - setup_remote_docker
-      - run:
-          name: Build backend
-          command: mvn package
+      # - run:
+      #     name: Build backend
+      #     command: mvn package
           # command: docker build -t bookeroo:latest .
       # - restore_cache: # restore the saved cache after the first run or if `pom.xml` has changed
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/

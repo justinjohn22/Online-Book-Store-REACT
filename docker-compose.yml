@@ -1,5 +1,5 @@
 services:
-  app:
+  web:
     build:
       context: .:/SEPT-Bookeroo-Team-2/BackEnd/loginmicroservices .
     volumes:

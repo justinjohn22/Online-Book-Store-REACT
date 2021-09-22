@@ -1,7 +1,8 @@
 package com.rmit.sept.bk_loginservices.services;
 
-import com.rmit.sept.bk_loginservices.Repositories.UserRepository;
 import com.rmit.sept.bk_loginservices.model.User;
+import com.rmit.sept.bk_loginservices.repositories.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,15 +19,16 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username);
-        if(user==null) new UsernameNotFoundException("User not found");
+        if (user == null)
+            new UsernameNotFoundException("User not found");
         return user;
     }
 
-
     @Transactional
-    public User loadUserById(Long id){
+    public User loadUserById(Long id) {
         User user = userRepository.getById(id);
-        if(user==null) new UsernameNotFoundException("User not found");
+        if (user == null)
+            new UsernameNotFoundException("User not found");
         return user;
 
     }

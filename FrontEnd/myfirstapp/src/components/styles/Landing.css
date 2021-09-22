@@ -1,0 +1,36 @@
+.grey-container {
+  background-color: rgba(255, 255, 255, 0.7);
+  height: 50vh;
+  border: 2px solid #000000;
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-text {
+  padding-left: 25%;
+  padding-right: 23%;
+  text-align: center;
+}
+
+.button-group {
+  display: flex;
+  padding-left: 29%;
+  padding-right: 29%;
+}
+
+body {
+  background-image: url(bookshelf.jpg);
+}
+
+button {
+  background-color: black;
+  border: 0ch;
+  color: white;
+  font-size: small;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 7vh;
+  width: 15vh;
+}

@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+  web:
+    build:
+      context: BackEnd/loginmicroservices
+      dockerfile: Dockerfile
+      # context: .:/SEPT-Bookeroo-Team-2/BackEnd/loginmicroservices .
+    # volumes:
+      # - .:/SEPT-BOOKEROO-TEAM-2/FrontEnd
+      # - BackEnd/loginmicroservices
+      # - .:/SEPT-Bookeroo-Team-2/BackEnd/loginmicroservices
+    ports:
+      # - 3000:3000
+      - 8080:8080
+    image: 14876231/loginmicroservices-0.0.1
+    container_name: sept_team_2
+    # command: npm start

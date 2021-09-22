@@ -10,27 +10,45 @@ import javax.validation.constraints.NotBlank;
 import java.util.Date;
 import java.util.Collection;
 
-
 @Entity
+@Table(name = "users")
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Email(message = "Username needs to be an email")
-    @NotBlank(message = "username is required")
+    @NotBlank(message = "Username is required")
     @Column(unique = true)
     private String username;
-    @NotBlank(message = "Please enter your full name")
+
+    /*
+     * Account type should be one of: - customer - publisher - pendingpublisher -
+     * admin - pendingadmin
+     */
+    @NotBlank(message = "Account type is required")
+    private String accountType;
+
+    @NotBlank(message = "Full name is required")
     private String fullName;
-    @NotBlank(message = "Password field is required")
+
+    @NotBlank(message = "Address is required")
+    private String address;
+
+    @NotBlank(message = "Phone number is required")
+    private String phoneNumber;
+
+    @NotBlank(message = "Password is required")
     private String password;
+
     @Transient
     private String confirmPassword;
-    private Date create_At;
-    private Date update_At;
 
-    //OneToMany with Project
+    // ABN is optional
+    private String abn;
+
+    private Date createAt;
+    private Date updateAt;
 
     public User() {
     }
@@ -51,12 +69,36 @@ public class User implements UserDetails {
         this.username = username;
     }
 
+    public String getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
+    }
+
     public String getFullName() {
         return fullName;
     }
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getPassword() {
@@ -75,34 +117,42 @@ public class User implements UserDetails {
         this.confirmPassword = confirmPassword;
     }
 
-    public Date getCreate_At() {
-        return create_At;
+    public String getAbn() {
+        return abn;
     }
 
-    public void setCreate_At(Date create_At) {
-        this.create_At = create_At;
+    public void setAbn(String abn) {
+        this.abn = abn;
     }
 
-    public Date getUpdate_At() {
-        return update_At;
+    public Date getCreateAt() {
+        return createAt;
     }
 
-    public void setUpdate_At(Date update_At) {
-        this.update_At = update_At;
+    public void setCreateAt(Date createAt) {
+        this.createAt = createAt;
+    }
+
+    public Date getUpdateAt() {
+        return updateAt;
+    }
+
+    public void setUpdateAt(Date updateAt) {
+        this.updateAt = updateAt;
     }
 
     @PrePersist
-    protected void onCreate(){
-        this.create_At = new Date();
+    protected void onCreate() {
+        this.createAt = new Date();
     }
 
     @PreUpdate
-    protected void onUpdate(){
-        this.update_At = new Date();
+    protected void onUpdate() {
+        this.updateAt = new Date();
     }
 
     /*
-    UserDetails interface methods
+     * UserDetails interface methods
      */
 
     @Override

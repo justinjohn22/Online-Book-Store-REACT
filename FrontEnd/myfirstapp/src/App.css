@@ -3,10 +3,10 @@ img {
 }
 
 .navbar {
-  background-color: #e3f2fd;
+  background-color: #000000;
 }
 .fa.fa-edit {
-  color: #18a2b9;
+  color: #142d31;
 }
 
 .list-group-item.delete:hover {
@@ -62,4 +62,73 @@ img {
 
 .form-control::placeholder {
   color: #bbb !important;
+}
+
+/* .main-title {
+} */
+
+.col-md-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding-top: 30px;
+}
+
+.outline-box {
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 5px solid #000000;
+
+  padding-top: 40px;
+  padding-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.footer {
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  min-height: 100px;
+  background-color: black;
+  text-align: center;
+  z-index: 1;
+}
+
+.footer a {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.slab-serif {
+  /* Use slab serif-font */
+  font-family: "Arvo", serif;
+}
+
+.white-text {
+  color: white;
+}
+
+.white-link {
+  color: white;
+  text-decoration: underline;
+}
+
+.white-link:hover {
+  color: lightgrey;
+  text-decoration: underline;
+}
+
+.black-link {
+  color: black;
+  text-decoration: underline;
+}
+
+.centered-text {
+  align-items: center;
+  text-align: center;
+}
+
+.centered-text p {
+  margin-left: auto;
+  margin-right: auto;
 }

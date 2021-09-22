@@ -1,7 +1,7 @@
 version: 2.1
 jobs: # a collection of steps
   build:
-    working_directory: ~/BackEnd/loginmicroservices
+    working_directory: ~/project/BackEnd/loginmicroservices
 
     # docker: # run the steps with Docker
     #   - image: circleci/openjdk:8-jdk-stretch # ...with this image as the primary container; this is where all `steps` will run

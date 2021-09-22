@@ -103,7 +103,7 @@ VALUES ('Ray Stoeve',  'Between Perfect & Real', 25.99,
         '75468985485658', '2021-09-22', '2021-09-22');
 
 INSERT INTO books ( author, name, cost, cover_image, description, isbn, create_at, update_at)
-VALUES ('Sukhinder Singh Cassidy',  'Choose Possibility', 27.99, 
+VALUES ('Sukhinder Cassidy',  'Choose Possibility', 27.99, 
         'https://drive.google.com/uc?id=13nIp1jVyocvxfRkaFeb7WZ83j6KA6H69', 
         'Wall Street Journal bestseller | An indispensable guide to decision-making and 
         risk-taking for anyone who finds themselves afraid of making a wrong choice in their 

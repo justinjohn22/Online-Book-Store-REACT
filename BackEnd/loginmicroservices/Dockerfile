@@ -1,9 +1,15 @@
-FROM java:8
+FROM maven:3.5.4-jdk-8-alpine as maven
 
-EXPOSE 8080
+COPY ./pom.xml ./pom.xml
 
-ADD target/loginmicroservices-0.0.1.jar loginmicroservices-0.0.1.jar
+COPY ./src ./src
 
-ENTRYPOINT ["java", "-jar", "loginmicroservices-0.0.1.jar"]
+RUN mvn package
 
+FROM openjdk:8u171-jre-alpine
 
+WORKDIR /bookeroo
+
+COPY --from=maven target/loginmicroservices-*.jar ./loginmicroservices.jar
+
+CMD ["java", "-jar", "./loginmicroservices.jar"]

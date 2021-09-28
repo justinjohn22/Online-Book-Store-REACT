@@ -32,7 +32,7 @@ function ViewBooks() {
    <div className="container-books">
         <div>
           <div className="search-container">
-            <input type="text" className="search-bar" placeholder="search for books, authors..." onChange={event => {setSearchTerm(event.target.value)}} />
+            <input type="text" className="search-bar" placeholder="search by book name,  author,  isbn..." onChange={event => {setSearchTerm(event.target.value)}} />
           </div>
           <div className="all-products ">
             <h4 className="slab-serif-white"><b>All Products</b></h4>
@@ -45,7 +45,8 @@ function ViewBooks() {
                   return val
                 }
                 else if (val.bookName.toLowerCase().includes(searchTerm.toLowerCase()) 
-                   || val.author.toLowerCase().includes(searchTerm.toLowerCase()) ) {
+                   || val.author.toLowerCase().includes(searchTerm.toLowerCase()) 
+                   || val.isbn.toLowerCase().includes(searchTerm.toLowerCase())) {
                   return val
                 }
               }

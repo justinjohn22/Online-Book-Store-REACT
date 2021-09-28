@@ -17,6 +17,8 @@ function ViewBooks() {
   const [books, setBooks] = useState([]) 
   const [searchTerm, setSearchTerm] = useState('')
 
+  var count = 0
+
   useEffect(() => {
     axios.get("http://localhost:8080/api/v1/books/all")
     .then(res => {
@@ -31,12 +33,26 @@ function ViewBooks() {
   return (
    <div className="container-books">
         <div>
+          {  
+             books.filter((val)=> {
+              if (searchTerm == "") {
+               count = 20
+              }
+              else if (val.bookName.toLowerCase().includes(searchTerm.toLowerCase()) 
+                 || val.author.toLowerCase().includes(searchTerm.toLowerCase()) 
+                 || val.isbn.toLowerCase().includes(searchTerm.toLowerCase())) {
+                 count++
+              }
+            }
+            )
+          }
+
           <div className="search-container">
             <input type="text" className="search-bar" placeholder="search by book name,  author,  isbn..." onChange={event => {setSearchTerm(event.target.value)}} />
           </div>
           <div className="all-products ">
             <h4 className="slab-serif-white"><b>All Products</b></h4>
-            <h5 className="slab-serif-white">filter | {books.length} items</h5>
+            <h5 className="slab-serif-white">filter | {count} items</h5>
           </div>
           <div className="books-container">
             { 

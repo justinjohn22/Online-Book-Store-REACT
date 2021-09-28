@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import axios from "axios"
-import { useState } from 'react'
+import React, {useState, useEffect} from 'react'
+import axios from 'axios'
 
 import '../styles/AllBooks.css'
+
 
 function viewBook() {
   window.location.href='/books'
@@ -13,38 +13,39 @@ function addToCart() {
 }
 
 
+function ViewBooks() {
+  const [books, setBooks] = useState([]) 
+  const [searchTerm, setSearchTerm] = useState('')
 
-class AllBooks extends Component {
-  state = {
-    books: []
-  }
-  
-
-  componentDidMount() {
-    // Get the list of books
+  useEffect(() => {
     axios.get("http://localhost:8080/api/v1/books/all")
     .then(res => {
-      const books = res.data;
-      this.setState({ books })
+     console.log(res)
+     setBooks(res.data)
     })
-  }
-  
-  render() {
-    return (
-      <div className="container-books">
+    .catch(err => {
+      console.log(err)
+    })
+  })
+
+  return (
+   <div className="container-books">
         <div>
-          <div>
-            {/* <input type="text" name="searchBar" id="searchBar" placeholder="search" />
-            <button onclick="search()">Try it</button> */}
+          <div className="search-container">
+            <input type="text" className="search-bar" placeholder="search for books, authors..." onChange={event => {setSearchTerm(event.target.value)}} />
           </div>
           <div className="all-products ">
             <h4 className="slab-serif-white"><b>All Products</b></h4>
-            <h5 className="slab-serif-white">filter | {this.state.books.length} items</h5>
+            <h5 className="slab-serif-white">filter | {books.length} items</h5>
           </div>
           <div className="books-container">
             { 
-              this.state.books.filter((val)=> {
-                if (val.bookName.toLowerCase().includes("".toLowerCase())) {
+              books.filter((val)=> {
+                if (searchTerm == "") {
+                  return val
+                }
+                else if (val.bookName.toLowerCase().includes(searchTerm.toLowerCase()) 
+                   || val.author.toLowerCase().includes(searchTerm.toLowerCase()) ) {
                   return val
                 }
               }
@@ -75,8 +76,7 @@ class AllBooks extends Component {
           </div>
         </div>
       </div>
-    )
-  }
+  )
 }
 
-export default AllBooks;
+export default ViewBooks

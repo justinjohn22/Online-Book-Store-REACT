@@ -16,7 +16,7 @@ class Landing extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-md-12">
+          <div className="col-md-11">
             <div className="grey-container">
               <div className="main-text">
                 <br />

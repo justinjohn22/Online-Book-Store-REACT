@@ -1,40 +1,9 @@
 version: 2.1
 jobs: # a collection of steps
   build:
-    working_directory: ~/project/BackEnd/loginmicroservices
-
-    # docker: # run the steps with Docker
-    #   - image: circleci/openjdk:8-jdk-stretch # ...with this image as the primary container; this is where all `steps` will run
-      
-    docker:
-    - image: circleci/openjdk:stretch
-
-    steps: 
+    machine: true
+    steps:
       - checkout
-      - run: mvnw package
-    
-      # - run: ./mvnw package
-      # - setup_remote_docker
-      # - run:
-      #     name: Build backend
-      #     command: mvn package
-          # command: docker build -t bookeroo:latest .
-      # - restore_cache: # restore the saved cache after the first run or if `pom.xml` has changed
-          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-          # key: circleci-appointmentservicebackend-{{ checksum "pom.xml" }}
-          # key: circleci-appointmentservicebackend-{{ checksum "pom.xml" }}
-
-      # - run: ./mvnw package
-  
-      # - save_cache: # saves the project dependencies
-      #     paths:
-      #       - ~/.m2
-         # key: circleci-appointmentservicebackend-{{ checksum "pom.xml" }}
-
-      # - run: mvn package # run the actual tests
-
-workflows:
-  version: 2
-  build_app:
-    jobs:
-      - build
+      #   LOGIN MICROSERVICE
+      - run: cd ./BackEnd/loginmicroservices/ && ./mvnw package
+      - run: ./mvnw test

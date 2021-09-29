@@ -7,5 +7,4 @@ jobs: # a collection of steps
       #   LOGIN MICROSERVICE
       - run: cd ./BackEnd/loginmicroservices/ && ./mvnw package
       - run: ./mvn test
-  before_install:
-    - chmod +x mvnw
+

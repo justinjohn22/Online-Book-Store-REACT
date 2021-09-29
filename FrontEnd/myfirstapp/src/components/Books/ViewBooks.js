@@ -18,6 +18,7 @@ function ViewBooks() {
   const [searchTerm, setSearchTerm] = useState('')
 
   var count = 0
+  var bookArray = []
 
   useEffect(() => {
     axios.get("http://localhost:8080/api/v1/books/all")
@@ -34,17 +35,18 @@ function ViewBooks() {
    <div className="container-books">
         <div>
           {  
-             books.filter((val)=> {
+            books.filter((val)=> {
               if (searchTerm == "") {
-               count = 20
+              count = books.length
+              bookArray = books 
               }
               else if (val.bookName.toLowerCase().includes(searchTerm.toLowerCase()) 
-                 || val.author.toLowerCase().includes(searchTerm.toLowerCase()) 
-                 || val.isbn.toLowerCase().includes(searchTerm.toLowerCase())) {
-                 count++
+                || val.author.toLowerCase().includes(searchTerm.toLowerCase()) 
+                || val.isbn.toLowerCase().includes(searchTerm.toLowerCase())) {
+                bookArray[count] = val 
+                count++
               }
-            }
-            )
+            })
           }
 
           <div className="search-container">
@@ -56,17 +58,7 @@ function ViewBooks() {
           </div>
           <div className="books-container">
             { 
-              books.filter((val)=> {
-                if (searchTerm == "") {
-                  return val
-                }
-                else if (val.bookName.toLowerCase().includes(searchTerm.toLowerCase()) 
-                   || val.author.toLowerCase().includes(searchTerm.toLowerCase()) 
-                   || val.isbn.toLowerCase().includes(searchTerm.toLowerCase())) {
-                  return val
-                }
-              }
-              ).map(book => {
+             bookArray.map(book => {
                 return (   
                     <div className="image-group">
                       <div className="book-attributes">

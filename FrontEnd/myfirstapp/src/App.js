@@ -1,19 +1,18 @@
 import React, { Component } from "react";
-import "./App.css";
-import Header from "./components/Layout/Header";
-import Footer from "./components/Layout/Footer.js";
-
-import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
 
-import AdminLanding from "./components/Administration/AdminLanding";
-import PendingBusinessApps from "./components/Administration/PendingBusinessApps";
-import Landing from "./components/Layout/Landing";
-import AboutUs from "./components/StaticPages/AboutUs";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
+import AboutUs from "./components/StaticPages/AboutUs";
+import AdminLanding from "./components/Administration/AdminLanding";
+import Footer from "./components/Layout/Footer.js";
+import Header from "./components/Layout/Header";
+import Landing from "./components/Layout/Landing";
 import LoginPage from "./components/StaticPages/LoginPage";
+import PendingBusinessApps from "./components/Administration/PendingBusinessApps";
 import RegisterPage from "./components/StaticPages/RegisterPage";
 import ViewBooks from "./components/Books/ViewBooks";
 

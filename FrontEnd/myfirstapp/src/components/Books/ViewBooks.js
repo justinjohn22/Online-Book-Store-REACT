@@ -36,7 +36,7 @@ function ViewBooks() {
         <div>
           {  
             books.filter((val)=> {
-              if (searchTerm == "") {
+              if (searchTerm === "") {
               count = books.length
               bookArray = books 
               }

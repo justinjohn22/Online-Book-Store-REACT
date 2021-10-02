@@ -36,7 +36,7 @@ class PendingBusinessApps extends Component {
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-            <div className="outline-box">
+            <div className="outline-box margin-bottom-big">
               <h1 className="slab-serif centered-text">
                 <b>Pending Publisher Applications</b>
               </h1>

@@ -8,7 +8,7 @@ function clickMe() {
 }
 
 function clickMe1() {
-  alert('Shop owner page hasnt been created yet!')
+  window.location.href='/sell'
 }
 
 class Landing extends Component {

@@ -15,6 +15,7 @@ import LoginPage from "./components/StaticPages/LoginPage";
 import PendingBusinessApps from "./components/Administration/PendingBusinessApps";
 import RegisterPage from "./components/StaticPages/RegisterPage";
 import ViewBooks from "./components/Books/ViewBooks";
+import ShopOwner from "./components/StaticPages/ShopOwner";
 
 class App extends Component {
   render() {
@@ -33,6 +34,7 @@ class App extends Component {
             <Route exact path="/login.html" component={LoginPage} />
             <Route exact path="/about" component={AboutUs} />
             <Route exact path="/books" component={ViewBooks} />
+            <Route exact path="/sell" component={ShopOwner} />
 
             {
               //Private Routes

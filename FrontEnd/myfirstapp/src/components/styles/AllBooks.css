@@ -4,7 +4,7 @@
 }
 
 .container-books {
-  padding-top: 130px;
+  padding-top: 110px;
 }
 
 .all-products {
@@ -112,10 +112,19 @@
 }
 
 .search-bar {
-  width: 350px;
-  height: 40px;
-  padding-left: 10px;
+  width: 450px;
+  height: 45px;
+  border-radius: 40px;
 }
 
-.search-bar-div {
+input {
+  padding-left: 20px;
+  font-family: "Arvo", serif;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 40px;
 }

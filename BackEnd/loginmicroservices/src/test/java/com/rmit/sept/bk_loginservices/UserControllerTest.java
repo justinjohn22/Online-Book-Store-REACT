@@ -12,7 +12,6 @@ import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.skyscreamer.jsonassert.JSONAssert;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -21,7 +20,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import  org.springframework.mock.web.MockHttpServletResponse;
+import org.springframework.mock.web.MockHttpServletResponse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +30,7 @@ import java.util.List;
 public class UserControllerTest {
 
     @Autowired
-	private MockMvc mockMvc;
+    private MockMvc mockMvc;
 
     @MockBean
     private UserRepository userRepository;
@@ -42,72 +41,64 @@ public class UserControllerTest {
     User mockUser = new User();
 
     @Test
-    public void createsUserWithNoValues(){
+    public void createsUserWithNoValues() {
         User user1 = new User();
         assertEquals(null, user1.getUsername());
     }
 
     @Test
-    public void insertsValidUsernameOfUser(){
+    public void insertsValidUsernameOfUser() {
         User user2 = new User();
         user2.setUsername("test");
         assertEquals("test", user2.getUsername());
     }
 
     @Test
-    public void insertsEmptyUsernameOfUser(){
+    public void insertsEmptyUsernameOfUser() {
         User user3 = new User();
-        user3.setUsername("");
+        user3.setUsername(null);
         assertEquals(null, user3.getUsername());
     }
 
-
     // BOTTOM 2 TESTS NEED TO BE FIXED - cant detect userRepository & userService
     @Test
-    public void getAllUsers() throws Exception{
+    public void getAllUsers() throws Exception {
         usersList.add(mockUser);
 
-        if (userRepository != null){
-            Mockito.when(
-                userRepository.findAll()
-            ).thenReturn(usersList);
-        
+        if (userRepository != null) {
+            Mockito.when(userRepository.findAll()).thenReturn(usersList);
+
             RequestBuilder rB = MockMvcRequestBuilders.get("/all").accept(MediaType.APPLICATION_JSON);
-            
+
             MvcResult result = mockMvc.perform(rB).andReturn();
 
             System.out.println(result.getResponse());
             String expected = "";
 
-            JSONAssert.assertEquals(expected, result.getResponse()
-                    .getContentAsString(), false);
-        }
-        else {
+            JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(), false);
+        } else {
             assertThrows(NullPointerException.class, () -> userRepository.findAll());
         }
 
     }
-    
-    @Test
-    public void createUser() throws Exception{
-        
-        if (userService != null){
-            Mockito.when(
-                userService.saveUser(mockUser)
-            ).thenReturn(mockUser);
 
-            RequestBuilder rB = MockMvcRequestBuilders.post("/register").accept(MediaType.APPLICATION_JSON).contentType(MediaType.APPLICATION_JSON);
+    @Test
+    public void createUser() throws Exception {
+
+        if (userService != null) {
+            Mockito.when(userService.saveUser(mockUser)).thenReturn(mockUser);
+
+            RequestBuilder rB = MockMvcRequestBuilders.post("/register").accept(MediaType.APPLICATION_JSON)
+                    .contentType(MediaType.APPLICATION_JSON);
 
             MvcResult result = mockMvc.perform(rB).andReturn();
 
-            MockHttpServletResponse response = result.getResponse(); 
+            MockHttpServletResponse response = result.getResponse();
 
             assertEquals(HttpStatus.CREATED.value(), response.getStatus());
-        }
-        else {
+        } else {
             assertThrows(NullPointerException.class, () -> userService.saveUser(mockUser));
         }
     }
-
 
 }

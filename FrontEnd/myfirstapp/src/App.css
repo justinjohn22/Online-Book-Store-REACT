@@ -99,6 +99,10 @@ img {
   margin-right: 8px;
 }
 
+.margin-bottom-big {
+  margin-bottom: 150px;
+}
+
 .slab-serif {
   /* Use slab serif-font */
   font-family: "Arvo", serif;

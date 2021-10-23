@@ -22,7 +22,7 @@
 }
 
 body {
-  background-image: url(bookshelf.jpg);
+  background: linear-gradient(to right, #ff39ce, #00ffff);
 }
 
 button {
@@ -33,4 +33,10 @@ button {
   font-family: Arial, Helvetica, sans-serif;
   height: 7vh;
   width: 15vh;
+}
+
+.col-md-11 {
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding-top: 70px;
 }

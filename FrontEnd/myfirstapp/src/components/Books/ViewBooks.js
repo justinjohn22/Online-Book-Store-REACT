@@ -4,8 +4,8 @@ import axios from 'axios'
 import '../styles/AllBooks.css'
 
 
-function viewBook() {
-  window.location.href='/books'
+function viewBook(id) {
+  window.location.href='/book/' + id
 }
 
 function addToCart() {
@@ -19,7 +19,8 @@ function ViewBooks() {
 
   var count = 0
   var bookArray = []
-
+  var id = 0
+  
   useEffect(() => {
     axios.get("http://localhost:8080/api/v1/books/all")
     .then(res => {
@@ -59,7 +60,7 @@ function ViewBooks() {
           <div className="books-container">
             { 
              bookArray.map(book => {
-                return (   
+                return (
                     <div className="image-group">
                       <div className="book-attributes">
                         <img className="cover-image" src={book.coverImage} alt="new"/>
@@ -69,8 +70,8 @@ function ViewBooks() {
                             <b><p className="slab-serif price">${book.cost} </p></b>
                         </div>  
                       </div>
-                      <div className="image-btn-group"> 
-                        <button className="view-book-btn slab-serif-white" onClick={viewBook}>
+                      <div className="image-btn-group">
+                        <button className="view-book-btn slab-serif-white"onClick={()=> viewBook(book.id)}>
                           <b> View Book </b>
                         </button>
                         &nbsp;  

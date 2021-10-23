@@ -1,10 +1,11 @@
 import React, {useState, useEffect, Component} from 'react'
 import axios from "axios";
+import BookService from './BookService';
 
 class ShopOwner extends Component {
   
   constructor(props) {
-    super(props);
+    super(props)
   
     this.state = {
        bookname: '',
@@ -13,65 +14,81 @@ class ShopOwner extends Component {
        description: '',
        image_url: '',
        isbn: ''
-    };
+    }
 
-   
+    this.handleBooknameChange = this.handleBooknameChange.bind(this);
+    this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+    this.handleAuthorChange = this.handleAuthorChange.bind(this);
+    this.handleCostChange = this.handleCostChange.bind(this);
+    this.handleImageChange = this.handleImageChange.bind(this);
+    this.handleISBNChange = this.handleISBNChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+
   }
 
   handleBooknameChange = (event) => {
     this.setState({
       bookname: event.target.value
-    })
+    });
   }
   
   handleDescriptionChange = (event) => {
     this.setState({
       description: event.target.value
-    })
+    });
   }
 
   handleAuthorChange = (event) => {
     this.setState({
       author: event.target.value
-    })
+    });
   }
 
   handleCostChange = (event) => {
     this.setState({
       cost: event.target.value
-    })
+    });
   }
 
   handleImageChange = (event) => {
     this.setState({
       image_url: event.target.value
-    })
+    });
   }
 
   handleISBNChange = (event) => {
     this.setState({
       isbn: event.target.value
-    })
+    });
   }
 
   handleSubmit = (event) => {
-    const newBook = {
-      bookname: this.state.bookname,
+    event.preventDefault();
+
+    let newBook = {
+      bookName: this.state.bookname,
       author: this.state.author,
-      cost: this.state.cost,
       description: this.state.description,
-      image_url: this.state.image_url,
-      isbn: this.state.isbn
+      cost: this.state.cost,
+      isbn: this.state.isbn,
+      coverImage: this.state.image_url
     }
-    axios.post("http://localhost:8080/api/v1/books/all", newBook)
-      .then(res => {
-        // redirect to all books if successful 
-        this.props.history.push("/")
-        alert("Book added")
-      })
-      .catch(error => {
-        alert("Whoops, something went wrong while adding a new book.")
-      })
+
+    console.log('book => ' + JSON.stringify(newBook));
+
+    BookService.createBook(newBook).then(res => {
+      this.props.history.push('/books');
+    })
+
+    // axios.post("http://localhost:8080/api/v1/books/all", newBook)
+    //   .then(res => {
+    //     // redirect to all books if successful 
+    //     this.props.history.push("/")
+    //     alert("Book added")
+    //   })
+    //   .catch(error => {
+    //     alert("Whoops, something went wrong while adding a new book.")
+    //   });
   }
 
   render () {
@@ -83,7 +100,7 @@ class ShopOwner extends Component {
         <h4 className="slab-serif"><b>Sell Books!</b></h4>
           <div className="outline-box centered-text">
             
-            <form onSubmit={this.handleSubmit}>
+            <form>
               <div>
                 <label>Book Name</label>
                 <input 
@@ -136,7 +153,7 @@ class ShopOwner extends Component {
                 />
               </div>
 
-              <button type="submit">
+              <button type="btn btn-success" onClick={this.handleSubmit}>
                 Add New Book
               </button>
             </form>

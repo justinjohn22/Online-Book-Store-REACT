@@ -23,6 +23,7 @@
 
 body {
   background: linear-gradient(to right, #ff39ce, #00ffff);
+  /* background-image: url(bookshelf.jpg); */
 }
 
 button {
